@@ -21,22 +21,21 @@ conky.config = {
     default_shade_color = 'black',
     default_outline_color = 'white',
     draw_shades = false,
-    alignment = 'top_left',
+    alignment = 'bottom_left',
     gap_x = 5,
     gap_y = 35,
     no_buffers = true,
     uppercase = false,
     cpu_avg_samples = 2,
     override_utf8_locale = false,
-    default_color = eceae4,
-    color1 = 'bfbfbf',
-    color2 = '01c400',
-    color3 = 'Tan1',
-    color4 = 'Tan1'
+    default_color = eceae4, --values color
+    color1 = 'bfbfbf', --parameters color
+    color2 = 'Tan1', --headers color
+    color3 = 'Tan1' --header lines color
 }
  
 conky.text = [[
-${font AvantGardeLTMedium:bold:size=10}${color3}Processors ${color4}${hr 2}${font}
+${font AvantGardeLTMedium:bold:size=10}${color2}Processors ${color3}${hr 2}${font}
 ${color1}Fan                ${alignr}${color}${hwmon 0 fan 1}
 ${color1}Frequency          ${alignr}${color}${freq_g}MHz
 ${color1}CPU Temp           ${alignr}${color}${hwmon 0 temp 1}C
@@ -53,16 +52,19 @@ ${color1}CPU10: ${alignr}${color}${exec awk '/cpu MHz/{i++}i==10{printf "%.f",$4
 ${color1}CPU11: ${alignr}${color}${exec awk '/cpu MHz/{i++}i==11{printf "%.f",$4; exit}' /proc/cpuinfo}MHz    ${cpubar cpu11 8,60} ${cpu cpu11}%
 ${color1}CPU12: ${alignr}${color}${exec awk '/cpu MHz/{i++}i==12{printf "%.f",$4; exit}' /proc/cpuinfo}MHz    ${cpubar cpu12 8,60} ${cpu cpu12}%
 
-${font AvantGardeLTMedium:bold:size=10}${color3}Memory ${color4}${hr 2}${font}
+${font AvantGardeLTMedium:bold:size=10}${color2}GPU ${color3}${hr 2}${font}
+
+
+${font AvantGardeLTMedium:bold:size=10}${color2}Memory ${color3}${hr 2}${font}
 ${color1}Memory     ${color}${alignr}${memeasyfree} / ${memmax}
 ${color1}Currently  ${color}${alignr}${memperc}%   ${membar}
  
-${font AvantGardeLTMedium:bold:size=10}${color3}Storage ${color4}${hr 2}${font}
+${font AvantGardeLTMedium:bold:size=10}${color2}Storage ${color3}${hr 2}${font}
 #${color1}/dev/sdb      ${color}${alignc}${fs_used /} / ${fs_size /} ${color}${alignr}${fs_free_perc /} % ${color}${alignr}${exec sudo #hddtemp /dev/sdb | awk '{print $NF}'}
 #${color}${fs_bar 5,220 /}
  
  
-${font AvantGardeLTMedium:bold:size=10}${color3}Networking ${color4}${hr 2}${font}
+${font AvantGardeLTMedium:bold:size=10}${color2}Networking ${color3}${hr 2}${font}
 ${if_existing /proc/net/route wlan0}${color1}Ip     ${color}${alignr}${addr wlan0}
 ${color1}AP     ${color}${alignr}${wireless_essid wlan0}
 ${color1}Signal     ${color}${alignr}${wireless_link_qual_perc wlan0}${wireless_link_bar 10,100 wlan0}
@@ -74,7 +76,7 @@ ${color1}Download   ${alignr}${color}${downspeed enp0s31f6}${downspeedgraph enp0
 ${color1}Upload     ${alignr}${color}${upspeed enp0s31f6}${upspeedgraph enp0s31f6 10,100}
 ${color1}Total Down/Up  ${alignr}${color}${totaldown enp0s31f6}${color1}/${color}${totalup enp0s31f6}${endif}${endif}
  
-${font AvantGardeLTMedium:bold:size=10}${color3}Top Processes ${color4}${hr 2}${font}
+${font AvantGardeLTMedium:bold:size=10}${color2}Top Processes ${color3}${hr 2}${font}
 ${color1}${top name 1}  ${alignr}${color}${top cpu 1} ${top mem 1}
 ${color1}${top name 2}  ${alignr}${color}${top cpu 2} ${top mem 2}
 ${color1}${top name 3}  ${alignr}${color}${top cpu 3} ${top mem 3}
