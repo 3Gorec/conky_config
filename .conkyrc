@@ -21,7 +21,7 @@ conky.config = {
     default_shade_color = 'black',
     default_outline_color = 'white',
     draw_shades = false,
-    alignment = 'bottom_left',
+    alignment = 'top_left',
     gap_x = 5,
     gap_y = 35,
     no_buffers = true,
@@ -36,7 +36,8 @@ conky.config = {
  
 conky.text = [[
 ${font AvantGardeLTMedium:bold:size=10}${color2}Processors ${color3}${hr 2}${font}
-${color1}Fan                ${alignr}${color}${hwmon 0 fan 1}
+${color1}Fan 1               ${alignr}${color}${hwmon 1 fan 2} rpm
+${color1}Fan 2               ${alignr}${color}${hwmon 1 fan 3} rpm
 ${color1}Frequency          ${alignr}${color}${freq_g}MHz
 ${color1}CPU Temp           ${alignr}${color}${hwmon 0 temp 1}C
 ${color1}CPU1: ${alignr}${color}${exec awk '/cpu MHz/{i++}i==1{printf "%.f",$4; exit}' /proc/cpuinfo}MHz    ${cpubar cpu1 8,60} ${cpu cpu1}%
