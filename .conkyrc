@@ -38,8 +38,8 @@ conky.text = [[
 ${font AvantGardeLTMedium:bold:size=10}${color2}Processors ${color3}${hr 2}${font}
 ${color1}Fan 1               ${alignr}${color}${hwmon 1 fan 2} rpm
 ${color1}Fan 2               ${alignr}${color}${hwmon 1 fan 3} rpm
-${color1}Frequency          ${alignr}${color}${freq_g}MHz
-${color1}CPU Temp           ${alignr}${color}${hwmon 0 temp 1}C
+${color1}Frequency          ${alignr}${color}${freq_g} GHz
+${color1}CPU Temp           ${alignr}${color}${hwmon 1 temp 1} C
 ${color1}CPU1: ${alignr}${color}${exec awk '/cpu MHz/{i++}i==1{printf "%.f",$4; exit}' /proc/cpuinfo}MHz    ${cpubar cpu1 8,60} ${cpu cpu1}%
 ${color1}CPU2: ${alignr}${color}${exec awk '/cpu MHz/{i++}i==2{printf "%.f",$4; exit}' /proc/cpuinfo}MHz    ${cpubar cpu2 8,60} ${cpu cpu2}%
 ${color1}CPU3: ${alignr}${color}${exec awk '/cpu MHz/{i++}i==3{printf "%.f",$4; exit}' /proc/cpuinfo}MHz    ${cpubar cpu3 8,60} ${cpu cpu3}%
@@ -54,16 +54,16 @@ ${color1}CPU11: ${alignr}${color}${exec awk '/cpu MHz/{i++}i==11{printf "%.f",$4
 ${color1}CPU12: ${alignr}${color}${exec awk '/cpu MHz/{i++}i==12{printf "%.f",$4; exit}' /proc/cpuinfo}MHz    ${cpubar cpu12 8,60} ${cpu cpu12}%
 
 ${font AvantGardeLTMedium:bold:size=10}${color2}GPU ${color3}${hr 2}${font}
-
+${color1}Fan               ${alignr}${color}${hwmon 2 fan 1} rpm
+${color1}Temp           ${alignr}${color}${hwmon 2 temp 1} C
 
 ${font AvantGardeLTMedium:bold:size=10}${color2}Memory ${color3}${hr 2}${font}
-${color1}Memory     ${color}${alignr}${memeasyfree} / ${memmax}
-${color1}Currently  ${color}${alignr}${memperc}%   ${membar}
+${color1}Free     ${color}${alignr}${memeasyfree} / ${memmax}
+${color1}Usage  ${color}${alignr}${memperc}%   ${membar}
  
 ${font AvantGardeLTMedium:bold:size=10}${color2}Storage ${color3}${hr 2}${font}
 #${color1}/dev/sdb      ${color}${alignc}${fs_used /} / ${fs_size /} ${color}${alignr}${fs_free_perc /} % ${color}${alignr}${exec sudo #hddtemp /dev/sdb | awk '{print $NF}'}
 #${color}${fs_bar 5,220 /}
- 
  
 ${font AvantGardeLTMedium:bold:size=10}${color2}Networking ${color3}${hr 2}${font}
 ${if_existing /proc/net/route wlan0}${color1}Ip     ${color}${alignr}${addr wlan0}
